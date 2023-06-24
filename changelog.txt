@@ -1,3 +1,46 @@
+June 19, 2023
+    Refactored Addon Management to fix bugs and simplify logic.
+
+June 16, 2023
+    Fixed bug with addon ordering not loading correctly. (Thanks ImpEGamer)
+    Updated 64 bit Imports for v520.
+    Added current zone to game is stuck message restart message.
+
+June 14, 2023
+    Fixed some edge case stack counts that could cause issues. (Thanks ekstergans)
+    Fixed Nodrom typos.
+    Updated how stack saves work on modron reset so the script doesn't hang before leveling champions on zone 1 if there's a network/server problem.
+    Reverted https usage to http due to some connection issues.
+
+June 4, 2023
+    Updated default play server from ps23 to ps22 since ps23 was shut down.
+    Updated timeouts on save calls to help reduce script lag on modron reset.
+    Updated 64 bit Imports for v517.
+
+May 20, 2023
+    Updated BrivGemFarm to open up to 1000 chests at once on stack restart.
+    Updated BrivGemFarm to open how many chests there are time for instead of not opening any if the max can't be opened.
+    Updated ChestPurchaser addon to decrement count by 1000 instead of 99 when opening chests.
+    Updated ServerCalls to accept up to a maximum of 1000 chests per OpenChest call.
+
+May 5, 2023
+    Updated chest open call to use simple 1s estimate for chests now that chest opening speeds have been dramatically increased server side.
+
+April 29, 2023
+    Fixed bug where taking longer than 10s for a process to start could continue launching copies of the game until the full timeout happens.
+    Updated 64 bit Imports for v512.
+
+April 23, 2023
+    Updated the save profile window to open over the Script Hub windows instead of the top left of the screen.
+    Fixed bug with GetHeroNextUpgradeIsPurchased memory read not reading the correct seat.
+    Fixed edge case bug where script could fail when min stack zone is equal to the minimum area possible for the stack zone.
+    Removed the previousZoneStartTime reset in StackNormal so it can no longer get stuck in an infinite loop of trying to stack but skipping it.
+    Updated AvoidRestackTest to use simpler cases that are also more fitting to auto detect stack settings and be named ShouldAvoidRestacks.
+    Removed ElapsedTime reset in StackNormal to allow it to run out of time if needed.
+    Added sleep timers to busy waits in StackNormal and StackOffline.
+    Moved the stacks check to StackRestart from StackFarm. (It already exists in StackNormal).
+    Added memory read for the name of the object adding a timescale multiplier. (Does not work for all timescale types).
+
 April 22, 2023
     Fixed bug with calculating stacks to reach zone where jumps were being multiplied by 1.15 instead of stacks being multiplied by 1.15.
     Updated worst case calculations for AutoDetect, especially around 1j briv.
